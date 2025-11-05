@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Second Workflow
+name: Deploy Workflow
 
 # Controls when the workflow will run
 on:
@@ -46,3 +46,29 @@ jobs:
         run: | 
           cd "Code/02 Starting Project" 
           npm test
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Get code
+        uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
+      - name: Install nodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      # Runs a single command using the runners shell
+      - name: Install dependencies
+        run: | 
+          cd "Code/02 Starting Project" 
+          npm ci
+      
+      - name: Build project
+        run: |
+          cd "Code/02 Starting Project" 
+          npm run build 
+
+      - name: Deploy 
+        run: echo "Deploying Application..."
