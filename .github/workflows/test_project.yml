@@ -34,14 +34,15 @@ jobs:
       - name: liste files and folders
         run: ls -lrt
         
-      # Runs a single command using the runners shell
-      - name: move into the working directory
-        run: cd "Code/02 Starting Project"
 
       # Runs a single command using the runners shell
       - name: Install dependencies
-        run: npm install
+        run: | 
+          cd "Code/02 Starting Project" 
+          npm ci
 
       # Runs a set of commands using the runners shell
       - name: Run tets
-        run: npm test 
+        run: | 
+          cd "Code/02 Starting Project" 
+          npm test
