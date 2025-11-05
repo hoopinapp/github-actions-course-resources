@@ -31,9 +31,12 @@ jobs:
         with:
           node-version: '18'
 
+      - name: liste files and folders
+        run: ls -lrt
+        
       # Runs a single command using the runners shell
       - name: move into the working directory
-        run: cd "02 Starting Project"
+        run: cd "Code/02 Starting Project"
 
       # Runs a single command using the runners shell
       - name: Install dependencies
