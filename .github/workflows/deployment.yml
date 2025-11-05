@@ -47,6 +47,7 @@ jobs:
           cd "Code/02 Starting Project" 
           npm test
   deploy:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
