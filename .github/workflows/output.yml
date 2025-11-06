@@ -7,4 +7,6 @@ jobs:
       - name: Output date and time
         run: date
       - name: Output GitHub context
-        run: echo "${{ toJson(github) }}"
+        run: echo "${{ toJson(github) }}" > github_context.json
+      - name: Display GitHub context file
+        run: cat github_context.json
